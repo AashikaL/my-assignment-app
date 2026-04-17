@@ -1,0 +1,20 @@
+<div class="stat-grid animate-fade-in">
+  @for (card of stats; track $index) {
+    <div class="stat-card">
+      <div class="stat-content">
+        <div class="stat-label">{{ card.label }}</div>
+        <div class="stat-value">{{ card.value }}</div>
+        <div class="stat-sub">
+          <span class="growth" [class.negative]="card.growth < 0">
+            <i class="bi" [class.bi-arrow-up-short]="card.growth > 0" [class.bi-arrow-down-short]="card.growth < 0"></i>
+            {{ Math.abs(card.growth) }}%
+          </span>
+          <span class="period">since last month</span>
+        </div>
+      </div>
+      <div class="stat-icon" [style.background-color]="card.iconBg">
+        <i class="bi" [class]="card.icon" [style.color]="card.iconColor"></i>
+      </div>
+    </div>
+  }
+</div>

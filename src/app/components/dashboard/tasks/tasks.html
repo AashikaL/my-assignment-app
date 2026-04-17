@@ -1,0 +1,21 @@
+<div class="tasks-container animate-fade-in">
+  @for (task of tasks; track task.id) {
+    <div class="task-item" [class.completed]="task.completed">
+      <div class="task-checkbox" (click)="toggleTask(task)">
+        <i class="bi" [class.bi-check-circle-fill]="task.completed" [class.bi-circle]="!task.completed"></i>
+      </div>
+      <div class="task-content">
+        <div class="task-title">{{ task.title }}</div>
+        <div class="task-meta">
+          <span class="badge" [class.bg-primary]="task.priority === 'High'" [class.bg-info]="task.priority === 'Medium'" [class.bg-secondary]="task.priority === 'Low'">
+            {{ task.priority }}
+          </span>
+          <span class="due-date"><i class="bi bi-calendar3"></i> {{ task.dueDate }}</span>
+        </div>
+      </div>
+      <div class="task-actions">
+        <i class="bi bi-three-dots-vertical"></i>
+      </div>
+    </div>
+  }
+</div>

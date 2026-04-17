@@ -1,0 +1,81 @@
+.navbar {
+  height: 72px;
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--bg-main);
+  padding: 8px 16px;
+  border-radius: 8px;
+  width: 320px;
+  color: var(--text-secondary);
+}
+
+.search-bar input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 0.875rem;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.action-item {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.action-item:hover {
+  background-color: var(--bg-main);
+  color: var(--primary);
+}
+
+.action-item .badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 0.65rem;
+  padding: 0.25em 0.5em;
+}
+
+.profile-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 20px;
+  border-left: 1px solid var(--border-color);
+  cursor: pointer;
+}
+
+.profile-preview span {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.profile-preview img {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+}

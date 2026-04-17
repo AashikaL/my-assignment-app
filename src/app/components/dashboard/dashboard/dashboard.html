@@ -1,0 +1,45 @@
+<div class="dashboard-container">
+  <h1 class="section-title pt-4">Dashboard Overview</h1>
+
+  <!-- Stat Cards -->
+  <app-stat-cards></app-stat-cards>
+
+  <!-- Premium Overview Chart Row -->
+  <div class="card p-4 border-0 shadow-sm mb-4 chart-card">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h5 class="card-title fw-bold mb-0">Overview</h5>
+      <div class="chart-actions">
+        <button class="btn btn-outline-secondary btn-sm me-2">Download</button>
+        <button class="btn btn-primary btn-sm">Full View</button>
+      </div>
+    </div>
+    <app-charts chartType="overview"></app-charts>
+  </div>
+
+  <!-- Second Row: Slider and Reviews -->
+  <div class="dashboard-grid">
+    <div class="card p-3 shadow-sm">
+      <h5 class="card-title fw-bold">Best Selling Products</h5>
+      <app-product-slider></app-product-slider>
+    </div>
+    <div class="card p-3 shadow-sm">
+      <h5 class="card-title fw-bold">Customer Reviews</h5>
+      <app-customer-reviews></app-customer-reviews>
+    </div>
+  </div>
+
+  <!-- Third Row: Tasks and Table -->
+  <div class="dashboard-grid">
+    <div class="card p-3 shadow-sm">
+      <h5 class="card-title fw-bold">Project Tasks</h5>
+      <app-tasks></app-tasks>
+    </div>
+    <div class="card p-3 shadow-sm">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="card-title fw-bold mb-0">Products List</h5>
+        <button class="btn btn-sm btn-primary">Export Data</button>
+      </div>
+      <app-products-table></app-products-table>
+    </div>
+  </div>
+</div>

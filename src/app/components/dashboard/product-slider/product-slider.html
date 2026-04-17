@@ -1,0 +1,21 @@
+<div class="slider-container animate-fade-in">
+  <owl-carousel-o [options]="customOptions">
+    @for (product of products; track product.id) {
+      <ng-template carouselSlide [id]="product.id">
+        <div class="product-card">
+          <div class="product-image">
+            <img [src]="product.image" [alt]="product.name">
+            <div class="product-overlay">
+              <button class="btn btn-primary btn-sm rounded-circle"><i class="bi bi-cart-plus"></i></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-name">{{ product.name }}</div>
+            <div class="product-price">{{ product.price }}</div>
+            <div class="product-sales"><i class="bi bi-graph-up"></i> {{ product.sales }} Sales</div>
+          </div>
+        </div>
+      </ng-template>
+    }
+  </owl-carousel-o>
+</div>

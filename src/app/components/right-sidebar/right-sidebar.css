@@ -1,0 +1,159 @@
+.right-sidebar {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100vh;
+  background: #fff;
+  z-index: 2000;
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.08);
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+}
+
+.right-sidebar.open {
+  right: 0;
+}
+
+.sidebar-content {
+  padding: 2rem;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.sidebar-header h5 {
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.btn-close-custom {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.btn-close-custom:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+.section-container {
+  margin-bottom: 2.5rem;
+}
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+/* Notifications */
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.notification-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-box.blue {
+  background: #eff6ff;
+  color: #3b82f6;
+}
+
+.icon-box.gray {
+  background: #f8fafc;
+  color: #64748b;
+}
+
+.item-text h6 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.item-text span {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* Activities */
+.activity-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-item {
+  display: flex;
+  gap: 1rem;
+  min-height: 70px;
+}
+
+.avatar-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.avatar-box img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.avatar-box .line {
+  width: 2px;
+  flex: 1;
+  background: #f1f5f9;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.activity-item:last-child .line {
+  display: none;
+}
+
+/* Backdrop */
+.sidebar-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1999;
+  backdrop-filter: blur(2px);
+}
+
+.placeholder-text {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  font-style: italic;
+}

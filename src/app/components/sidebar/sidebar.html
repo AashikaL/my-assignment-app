@@ -1,0 +1,84 @@
+<div class="sidebar" [class.collapsed]="isCollapsed">
+  <div class="sidebar-header">
+    <div class="logo">
+      <i class="bi bi-stack"></i>
+      <span *ngIf="!isCollapsed">DashUI</span>
+    </div>
+    <button class="toggle-btn" (click)="toggle()">
+      <i class="bi" [class.bi-chevron-left]="!isCollapsed" [class.bi-list]="isCollapsed"></i>
+    </button>
+  </div>
+
+  <div class="sidebar-menu">
+    <div class="menu-label" *ngIf="!isCollapsed">Dashboards</div>
+    <ul class="nav-list">
+      <li class="nav-item" [class.active]="activeItem === 'Overview'">
+        <a (click)="setActive('Overview')">
+          <i class="bi" [class.bi-grid-fill]="activeItem === 'Overview'" [class.bi-grid]="activeItem !== 'Overview'"></i>
+          <span *ngIf="!isCollapsed">Overview</span>
+        </a>
+      </li>
+      <li class="nav-item" [class.active]="activeItem === 'eCommerce'">
+        <a (click)="setActive('eCommerce')">
+          <i class="bi bi-cart3"></i>
+          <span *ngIf="!isCollapsed">eCommerce</span>
+        </a>
+      </li>
+      <li class="nav-item" [class.active]="activeItem === 'Projects'">
+        <a (click)="setActive('Projects')">
+          <i class="bi bi-folder"></i>
+          <span *ngIf="!isCollapsed">Projects</span>
+        </a>
+      </li>
+      <li class="nav-item" [class.active]="activeItem === 'Online Courses'">
+        <a (click)="setActive('Online Courses')">
+          <i class="bi bi-book"></i>
+          <span *ngIf="!isCollapsed">Online Courses</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="menu-label" *ngIf="!isCollapsed">Pages</div>
+    <ul class="nav-list">
+      <li class="nav-item has-submenu" [class.expanded]="expandedMenus['Users']">
+        <a (click)="toggleSubmenu('Users')">
+          <i class="bi bi-person-badge"></i>
+          <span *ngIf="!isCollapsed">User Profile</span>
+          <i class="bi submenu-arrow" *ngIf="!isCollapsed" 
+             [class.bi-chevron-down]="expandedMenus['Users']" 
+             [class.bi-chevron-right]="!expandedMenus['Users']"></i>
+        </a>
+        <ul class="submenu" *ngIf="expandedMenus['Users'] && !isCollapsed">
+          <li class="submenu-item"><a (click)="setActive('UserOverview')">Overview</a></li>
+          <li class="submenu-item"><a (click)="setActive('UserProjects')">Projects</a></li>
+          <li class="submenu-item"><a (click)="setActive('UserCampaigns')">Campaigns</a></li>
+          <li class="submenu-item"><a (click)="setActive('UserDocuments')">Documents</a></li>
+          <li class="submenu-item"><a (click)="setActive('UserFollowers')">Followers</a></li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a (click)="setActive('Account')">
+          <i class="bi bi-person-gear"></i>
+          <span *ngIf="!isCollapsed">Account</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a (click)="setActive('Corporate')">
+          <i class="bi bi-building"></i>
+          <span *ngIf="!isCollapsed">Corporate</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="sidebar-footer" *ngIf="!isCollapsed">
+    <div class="user-info">
+      <img src="https://ui-avatars.com/api/?name=John+Doe&background=random" alt="User">
+      <div class="user-details">
+        <span class="user-name">John Doe</span>
+        <span class="user-role">Administrator</span>
+      </div>
+      <i class="bi bi-box-arrow-right logout-icon"></i>
+    </div>
+  </div>
+</div>

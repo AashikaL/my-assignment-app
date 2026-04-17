@@ -1,0 +1,23 @@
+<div class="reviews-container animate-fade-in">
+  <div class="reviews-list">
+    @for (review of reviews; track $index) {
+      <div class="review-item">
+        <div class="review-header">
+          <img [src]="review.avatar" [alt]="review.name">
+          <div class="review-info">
+            <div class="review-name">{{ review.name }}</div>
+            <div class="review-time">{{ review.time }}</div>
+          </div>
+          <div class="review-rating">
+            @for (star of [1,2,3,4,5]; track $index) {
+              <i class="bi bi-star-fill" [class.active]="star <= review.rating"></i>
+            }
+          </div>
+        </div>
+        <div class="review-text">
+          {{ review.text }}
+        </div>
+      </div>
+    }
+  </div>
+</div>

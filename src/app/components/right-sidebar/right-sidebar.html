@@ -1,0 +1,54 @@
+<div class="right-sidebar" [class.open]="uiService.isRightSidebarOpen()">
+  <div class="sidebar-content">
+    
+    <!-- Header -->
+    <div class="sidebar-header">
+      <h5 class="m-0">Notifications</h5>
+      <button class="btn-close-custom" (click)="close()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <!-- Notifications Section -->
+    <div class="section-container">
+      <div class="notification-list">
+        <div class="notification-item" *ngFor="let item of notifications">
+          <div class="icon-box" [ngClass]="item.color">
+            <i class="bi" [ngClass]="item.icon"></i>
+          </div>
+          <div class="item-text">
+            <h6>{{ item.title }}</h6>
+            <span>{{ item.time }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activities Section -->
+    <div class="section-container">
+      <h5 class="section-title">Activities</h5>
+      <div class="activity-list">
+        <div class="activity-item" *ngFor="let item of activities">
+          <div class="avatar-box">
+            <img [src]="item.avatar" alt="User">
+            <div class="line"></div>
+          </div>
+          <div class="item-text">
+            <h6>{{ item.title }}</h6>
+            <span>{{ item.time }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Call Section Placeholder -->
+    <div class="section-container">
+      <h5 class="section-title">Recent Call</h5>
+      <div class="placeholder-text">No recent calls</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Backdrop -->
+<div class="sidebar-backdrop" *ngIf="uiService.isRightSidebarOpen()" (click)="close()"></div>

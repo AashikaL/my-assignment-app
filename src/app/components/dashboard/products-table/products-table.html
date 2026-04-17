@@ -1,0 +1,65 @@
+<div class="table-responsive animate-fade-in">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th (click)="sort('name')">Product Name <i class="bi" [class.bi-sort-alpha-down]="sortKey === 'name'"></i></th>
+        <th (click)="sort('category')">Category <i class="bi" [class.bi-sort-alpha-down]="sortKey === 'category'"></i>
+        </th>
+        <th (click)="sort('price')">Price <i class="bi" [class.bi-sort-numeric-down]="sortKey === 'price'"></i></th>
+        <th (click)="sort('stock')">Stock <i class="bi" [class.bi-sort-numeric-down]="sortKey === 'stock'"></i></th>
+        <th>Status</th>
+        <th class="text-end">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of paginatedProducts; track product.id) {
+      <tr>
+        <td>
+          <div class="d-flex align-items-center gap-3">
+            <img [src]="product.image" class="thumb" alt="Product">
+            <span class="fw-semibold">{{ product.name }}</span>
+          </div>
+        </td>
+        <td><span class="text-secondary">{{ product.category }}</span></td>
+        <td class="fw-bold">{{ product.price | currency }}</td>
+        <td>{{ product.stock }} pcs</td>
+        <td>
+          <span class="badge" [class.bg-success-subtle]="product.status === 'Active'"
+            [class.text-success]="product.status === 'Active'"
+            [class.bg-warning-subtle]="product.status === 'Low Stock'"
+            [class.text-warning]="product.status === 'Low Stock'"
+            [class.bg-danger-subtle]="product.status === 'Out of Stock'"
+            [class.text-danger]="product.status === 'Out of Stock'">
+            {{ product.status }}
+          </span>
+        </td>
+        <td class="text-end">
+          <button class="btn btn-icon"><i class="bi bi-pencil"></i></button>
+          <button class="btn btn-icon text-danger"><i class="bi bi-trash"></i></button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+
+  <!-- Pagination -->
+  <div class="pagination-container d-flex justify-content-between align-items-center mt-3">
+    <div class="text-secondary small">
+      Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ Math.min(currentPage * pageSize, totalItems) }} of {{
+      totalItems }} entries
+    </div>
+    <ul class="pagination pagination-sm mb-0">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" href="#" (click)="setPage(currentPage - 1, $event)">Previous</a>
+      </li>
+      @for (p of pages; track $index) {
+      <li class="page-item" [class.active]="p === currentPage">
+        <a class="page-link" href="#" (click)="setPage(p, $event)">{{ p }}</a>
+      </li>
+      }
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <a class="page-link" href="#" (click)="setPage(currentPage + 1, $event)">Next</a>
+      </li>
+    </ul>
+  </div>
+</div>
